@@ -31,7 +31,7 @@ pipeline {
             // Run the sonar scan
             steps {
                 script {
-                    def mvnHome = tool 'npm'
+                    def scannerHome = tool 'SonarQube Scanner 2.0.8';
                     withSonarQubeEnv {
 
                         sh "${scannerHome}/bin/sonar-scanner"
