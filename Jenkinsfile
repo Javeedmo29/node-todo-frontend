@@ -31,29 +31,15 @@ pipeline {
             // Run the sonar scan
             steps {
                 script {
-                    def mvnHome = tool 'Maven 3.5.2'
+                    def mvnHome = tool 'npm'
                     withSonarQubeEnv {
 
-                        sh "'${mvnHome}/bin/mvn'  verify sonar:sonar -Dintegration-tests.skip=true -Dmaven.test.failure.ignore=true"
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
             }
         }
-        // waiting for sonar results based into the configured web hook in Sonar server which push the status back to jenkins
-        stage('Sonar scan result check') {
-            steps {
-                timeout(time: 2, unit: 'MINUTES') {
-                    retry(3) {
-                        script {
-                            def qg = waitForQualityGate()
-                            if (qg.status != 'OK') {
-                                error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        
     stage('Building Image'){
       steps{
         script{
