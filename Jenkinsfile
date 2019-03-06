@@ -1,6 +1,6 @@
 pipeline {
   environment{
-    registry = "vinay4790/testrepo"
+    registry = "javeedmo29/dockerproject"
     registryCredential = 'dockerhub'
     dockerImage = ''
     containerId = sh(script: 'docker ps -aqf "name=node-app"', returnStdout:true)
@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/vinaybp/node-todo-frontend'
+        git 'https://github.com/Javeedmo29/node-todo-frontend'
       }
     }
         
