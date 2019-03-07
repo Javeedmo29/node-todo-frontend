@@ -29,7 +29,7 @@ pipeline {
   
     stage('properties') {
       steps {
-        sh 'sonar-scanner \
+        sh 'sonarScanner \
   -Dsonar.projectKey=project \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://13.71.118.170:9000 \
