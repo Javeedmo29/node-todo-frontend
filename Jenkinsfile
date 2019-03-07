@@ -31,7 +31,7 @@ pipeline {
             // Run the sonar scan
             steps {
                 script {
-                    def scannerHome = tool 'SonarQube Scanner for Jenkins 2.0.8';
+                    def scannerHome = tool 'SonarQube Scanner 2.8';
                     withSonarQubeEnv {
 
                         sh "${scannerHome}/bin/sonar-scanner"
