@@ -34,7 +34,7 @@ property "project",
 property "dd9ec1ed7ff71da76a89c0425fb21764e4425526" , 
 property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    }
 }
-  }
+
 
     stage('Sonar scan execution') {
             // Run the sonar scan
