@@ -27,6 +27,19 @@ pipeline {
       }
     }
   
+    stage('properties') {
+      step {
+        sh "sonar-scanner \
+  -Dsonar.projectKey=project \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://13.71.118.170:9000 \
+  -Dsonar.login=dd9ec1ed7ff71da76a89c0425fb21764e4425526"
+      }
+    }
+        
+        
+        
+        
     stage('Sonar scan execution') {
             // Run the sonar scan
             steps {
