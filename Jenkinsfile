@@ -30,10 +30,11 @@ pipeline {
 sonarqube {
 properties {
 property "sonar.host.url", http://13.71.118.170:9000
-property "sonar.projectName", "project"   //  this name will appear in dashboard
-property "sonar.projectKey", "dd9ec1ed7ff71da76a89c0425fb21764e4425526" // It sould be a keybased on this report is created
+property "sonar.projectName", "project"   
+property "sonar.projectKey", "dd9ec1ed7ff71da76a89c0425fb21764e4425526" 
 property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    }
 }
+  }
 
     stage('Sonar scan execution') {
             // Run the sonar scan
