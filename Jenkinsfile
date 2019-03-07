@@ -26,12 +26,12 @@ pipeline {
          sh 'npm test'
       }
     }
-    
+  
 sonarqube {
 properties {
-property "sonar.host.url", http://sonar.xxxxx.com //  url is your sonar server
-property "sonar.projectName", "project  display name"   //  this name will appear in dashboard
-property "sonar.projectKey", "projectKey" // It sould be a keybased on this report is created
+property "sonar.host.url", http://13.71.118.170:9000
+property "sonar.projectName", "project"   //  this name will appear in dashboard
+property "sonar.projectKey", "dd9ec1ed7ff71da76a89c0425fb21764e4425526" // It sould be a keybased on this report is created
 property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    }
 }
 
