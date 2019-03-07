@@ -27,11 +27,13 @@ pipeline {
       }
     }
     
-stage("Building SONAR ...") {
-sh './gradlew clean sonarqube'
+sonarqube {
+properties {
+property "sonar.host.url", http://sonar.xxxxx.com //  url is your sonar server
+property "sonar.projectName", "project  display name"   //  this name will appear in dashboard
+property "sonar.projectKey", "projectKey" // It sould be a keybased on this report is created
+property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    }
 }
- step([$class: 'WsCleanup'])
-return
 
     stage('Sonar scan execution') {
             // Run the sonar scan
