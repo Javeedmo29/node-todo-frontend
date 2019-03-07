@@ -27,15 +27,6 @@ pipeline {
       }
     }
   
-sonarqube {
-properties {
-property "http://13.71.118.170:9000",  
-property "sonar.projectName", "project"   
-property "sonar.projectKey", "dd9ec1ed7ff71da76a89c0425fb21764e4425526" 
-property "sonar.groovy.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"    }
-}
-
-
     stage('Sonar scan execution') {
             // Run the sonar scan
             steps {
