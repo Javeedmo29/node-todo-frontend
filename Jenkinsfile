@@ -26,10 +26,16 @@ pipeline {
          sh 'npm test'
       }
     }
+    
+    stage('Sonar Build') {
+      steps {
+        sh 'npm install -D sonarqube-scanner'
+      }
+    }
   
     stage('properties') {
       steps {
-        sh 'sonarScanner \
+        sh 'sonarqube-scanner \
   -Dsonar.projectKey=project \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://13.71.118.170:9000 \
