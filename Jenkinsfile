@@ -32,7 +32,7 @@ sh './gradlew clean sonarqube'
 }
  step([$class: 'WsCleanup'])
 return
-}
+
     stage('Sonar scan execution') {
             // Run the sonar scan
             steps {
