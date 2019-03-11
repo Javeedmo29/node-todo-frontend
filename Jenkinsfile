@@ -35,11 +35,11 @@ pipeline {
   
     stage('properties') {
       steps {
-        properties (sonar-scanner \
+          sh"sonar-scanner \
   -Dsonar.projectKey=project \
   -Dsonar.sources=. \
   -Dsonar.host.url=http://13.71.82.249:9000 \
-  -Dsonar.login=324491db0ddb57285f4b2e2a7a96605cb31531b1)
+  -Dsonar.login=324491db0ddb57285f4b2e2a7a96605cb31531b1"
       }
     }
         
